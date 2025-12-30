@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: spycatdb
+      POSTGRES_USER: spycatuser
+      POSTGRES_PASSWORD: spycatdb
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/18/docker
+
+volumes:
+  postgres_data:
